@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-world-app
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: desktop-blue
+    server: "https://kubernetes.default.svc"
+  source:
+    repoURL: "https://a6df783b0a5764316a5b5b55dcfd3fd8-1517968646.ap-south-1.elb.amazonaws.com:8080"
+    targetRevision: 1.2.16
+    chart: hello-world-app
+    helm:
+      releaseName: hello-world-app
+      version: v3
+      passCredentials: false
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - Validate=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
