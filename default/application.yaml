@@ -11,7 +11,7 @@ spec:
     server: "https://kubernetes.default.svc"
   source:
     repoURL: https://github.com/jilanisayyad/gitops-deployments.git
-    path: hello-world-app/helm
+    path: hello-world-app
     directory:
       recurse: true
   project: default
