@@ -10,7 +10,7 @@ spec:
     namespace: desktop-blue
     server: "https://kubernetes.default.svc"
   source:
-    repoURL: "https://af363009483764474abc47c611b6cf3f-1954008745.ap-south-1.elb.amazonaws.com:8080"
+    repoURL: "http://af363009483764474abc47c611b6cf3f-1954008745.ap-south-1.elb.amazonaws.com:8080"
     targetRevision: 2023.1.47
     chart: hello-world-app
     helm:
